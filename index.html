@@ -34,9 +34,11 @@
     var lossesText = document.getElementById("losses-text");
     var GuessesLeftText = document.getElementById("Guesses-Left");
 
+    var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
     document.onkeyup = function(event) {
       var userGuess = event.key;
-      var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    
       GuessesLeft--;
       
       if (userGuess === computerChoice) {
