@@ -14,7 +14,8 @@
     <p id="computerchoice-text"></p>
     <p id="wins-text"></p>
     <p id="losses-text"></p>
-    <p id="Your-Guesses-so-far:"></p>
+    <p id="Guesses-Left"></p>
+
   </div>
 
   <script type="text/javascript">
@@ -25,26 +26,34 @@
 
     var wins = 0;
     var losses = 0;
+    var GuessesLeft = 9;
 
     var userChoiceText = document.getElementById("userchoice-text");
     var computerChoiceText = document.getElementById("computerchoice-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
-    var YourGuessessofar = document.getElementById("Your-Guesses-so-far:")
+    var GuessesLeftText = document.getElementById("Guesses-Left");
 
     document.onkeyup = function(event) {
       var userGuess = event.key;
       var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      GuessesLeft--;
+      
       if (userGuess === computerChoice) {
           wins++;
         } else {
           losses++;
         }
 
+
         userChoiceText.textContent = "You chose: " + userGuess;
         computerChoiceText.textContent = "The computer chose: " + computerChoice;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
+        GuessesLeftText.textContent = "Guesses Left: " + GuessesLeft;
+
+        
+
       }
 
   </script>
