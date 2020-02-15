@@ -41,6 +41,7 @@
 
     var restart = function() {
       userGuess = [];
+      GuessesLeft = 9;
       computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
 
@@ -49,12 +50,14 @@
       GuessesLeft--;
       var user = GuessesLeft;
       userGuesses.push(userGuess);
-      
+
+      //if statement  
       if (userGuess === computerChoice) {
           wins++;
           restart ();
-        } else {
+        } else if (GuessesLeft === 0) {
           losses++;
+          restart ();
         }
 
         userChoiceText.textContent = "You chose: " + userGuess;
