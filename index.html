@@ -15,6 +15,7 @@
     <p id="wins-text"></p>
     <p id="losses-text"></p>
     <p id="Guesses-Left"></p>
+    <p id="Guesses-Used:"></p>
 
   </div>
 
@@ -34,11 +35,11 @@
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     var GuessesLeftText = document.getElementById("Guesses-Left");
+    var GuessesUsed = document.getElementById("Guesses-Used:");
 
     var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    var restart = fucntion() {
-      GuessesLeft = 9;
+    var restart = function() {
       userGuess = [];
       computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
