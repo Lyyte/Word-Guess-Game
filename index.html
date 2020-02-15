@@ -9,9 +9,9 @@
 <body>
 
   <div>
+    <h1>Can you beat Skynet???</h1>
     <p>Guess what letter I'm thinking of...</p>
     <p id="userchoice-text"></p>
-    <p id="computerchoice-text"></p>
     <p id="wins-text"></p>
     <p id="losses-text"></p>
     <p id="Guesses-Left"></p>
@@ -21,30 +21,29 @@
 
   <script type="text/javascript">
 
+    // Variables:
     var computerChoices = ["a", "b", "c", "d", "e", "f", "g",
 		"h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
 		"u", "v", "w", "x", "y", "z" ];
-
     var wins = 0;
     var losses = 0;
     var GuessesLeft = 9;
     var userGuesses = [];
-
     var userChoiceText = document.getElementById("userchoice-text");
-    var computerChoiceText = document.getElementById("computerchoice-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     var GuessesLeftText = document.getElementById("Guesses-Left");
     var GuessesUsedText = document.getElementById("Guesses-Used:");
-
     var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
+    //restart Function
     var restart = function() {
       GuessesLeft = 9;
       userGuesses = [];
       computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
 
+    //when player presses a button: 
     document.onkeyup = function(event) {
       var userGuess = event.key; 
       GuessesLeft--;
@@ -60,8 +59,8 @@
           restart ();
         }
 
+        //outputs 
         userChoiceText.textContent = "You chose: " + userGuess;
-        computerChoiceText.textContent = "The computer chose: " + computerChoice;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
         GuessesLeftText.textContent = "Guesses Left: " + GuessesLeft;
