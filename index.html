@@ -35,7 +35,7 @@
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     var GuessesLeftText = document.getElementById("Guesses-Left");
-    var GuessesUsed = document.getElementById("Guesses-Used:");
+    var GuessesUsedText = document.getElementById("Guesses-Used:");
 
     var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
@@ -47,10 +47,12 @@
     document.onkeyup = function(event) {
       var userGuess = event.key; 
       GuessesLeft--;
-      var user = GuessesLeft
+      var user = GuessesLeft;
+      userGuesses.push(userGuess);
       
       if (userGuess === computerChoice) {
           wins++;
+          restart ();
         } else {
           losses++;
         }
@@ -60,6 +62,7 @@
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
         GuessesLeftText.textContent = "Guesses Left: " + GuessesLeft;
+        GuessesUsedText.textContent = "Current Guesses: " + userGuesses;
     
       }
 
