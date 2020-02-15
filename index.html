@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 7</title>
+  <title>Psychic Game</title>
 </head>
 
 <body>
@@ -27,6 +27,7 @@
     var wins = 0;
     var losses = 0;
     var GuessesLeft = 9;
+    var userGuesses = [];
 
     var userChoiceText = document.getElementById("userchoice-text");
     var computerChoiceText = document.getElementById("computerchoice-text");
@@ -36,21 +37,21 @@
 
     var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    var restart = function() {
-        guessesLeft = 9;
-        letterUser = []
-        computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    var restart = fucntion() {
+      GuessesLeft = 9;
+      userGuess = [];
+      computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
 
     document.onkeyup = function(event) {
-      var userGuess = event.key;
+      var userGuess = event.key; 
       GuessesLeft--;
+      var user = GuessesLeft
+      
       if (userGuess === computerChoice) {
           wins++;
-          restart();
-        } else if (guessesLeft === 0) {
+        } else {
           losses++;
-          restart();
         }
 
         userChoiceText.textContent = "You chose: " + userGuess;
