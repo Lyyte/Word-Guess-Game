@@ -1,75 +1,26 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Psychic Game</title>
+    <meta charset="UTF-8">
+    <title>The Psychic Game</title>
 </head>
 
 <body>
 
-  <div>
-    <h1>Can you beat Skynet???</h1>
-    <p>Guess what letter I'm thinking of...</p>
-    <p id="userchoice-text"></p>
-    <p id="wins-text"></p>
-    <p id="losses-text"></p>
-    <p id="Guesses-Left"></p>
-    <p id="Guesses-Used:"></p>
-
-  </div>
-
-  <script type="text/javascript">
-
-    // Variables:
-    var computerChoices = ["a", "b", "c", "d", "e", "f", "g",
-		"h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-		"u", "v", "w", "x", "y", "z" ];
-    var wins = 0;
-    var losses = 0;
-    var GuessesLeft = 9;
-    var userGuesses = [];
-    var userChoiceText = document.getElementById("userchoice-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var GuessesLeftText = document.getElementById("Guesses-Left");
-    var GuessesUsedText = document.getElementById("Guesses-Used:");
-    var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-    //restart Function
-    var restart = function() {
-      GuessesLeft = 9;
-      userGuesses = [];
-      computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    }
-
-    //when player presses a button: 
-    document.onkeyup = function(event) {
-      var userGuess = event.key; 
-      GuessesLeft--;
-      var user = GuessesLeft;
-      userGuesses.push(userGuess);
-
-      //if statement  
-      if (userGuess === computerChoice) {
-          wins++;
-          restart ();
-        } else if (GuessesLeft === 0) {
-          losses++;
-          restart ();
-        }
-
-        //outputs 
-        userChoiceText.textContent = "You choose: " + userGuess;
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
-        GuessesLeftText.textContent = "Guesses Left: " + GuessesLeft;
-        GuessesUsedText.textContent = "Current Guesses: " + userGuesses;
-    
-      }
-
-  </script>
-
+    <div>
+      <h1>Can you beat Skynet???</h1>
+      <p>Guess what letter I'm thinking of...</p>
+      <p id="userchoice-text">Pick a letter!</p>
+      <p id="wins-text">Wins:</p>
+      <p id="losses-text">Losses:</p>
+      <p id="Guesses-Left">Guesses Left: 9</p>
+      <p id="Guesses-Used:">Current Keys Pressed:</p>
+  
+    </div>
+  
+    <script src="./assets/javascript/game.js"></script>
+  
 </body>
 
 </html>
